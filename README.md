@@ -1,2 +1,0 @@
-# yellowhub
-nextjs, ssg, blog, 
