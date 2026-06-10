@@ -1,12 +1,14 @@
 {
-  "name": "nextjs-temp",
+  "name": "yellowhub",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "oxlint && eslint",
+    "lint:ox": "oxlint",
+    "lint:eslint": "eslint"
   },
   "dependencies": {
     "next": "16.2.9",
@@ -19,6 +21,8 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
+    "eslint-plugin-oxlint": "^1.69.0",
+    "oxlint": "^1.69.0",
     "typescript": "^5"
   }
 }
