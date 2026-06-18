@@ -1,0 +1,176 @@
+/* ============================================
+   Time Widget — floating clock card
+   animal-island-ui style, warm & playful
+   ============================================ */
+
+.time-widget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 20px 24px;
+  border-radius: 24px;
+  background: var(--time-bg);
+  border: 1.5px solid var(--time-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--time-text);
+  min-width: 180px;
+  position: relative;
+  overflow: visible;
+}
+
+/* Floating animation (same as island in Hero) */
+.time-widget--float {
+  animation: timeWidgetFloat 4s ease-in-out infinite;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.18));
+}
+
+@keyframes timeWidgetFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+/* ---------- Greeting ---------- */
+.time-widget__greeting {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--time-text-muted);
+}
+
+/* ---------- Clock ---------- */
+.time-widget__clock {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  line-height: 1;
+}
+
+.time-widget__hm {
+  font-family: var(--font-family);
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: var(--time-text);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.time-widget__sep {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--time-text-muted);
+  animation: colonBlink 1s step-end infinite;
+  padding: 0 1px;
+}
+
+@keyframes colonBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0.25; }
+}
+
+.time-widget__sec {
+  font-family: var(--font-family);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--time-text-muted);
+  min-width: 28px;
+}
+
+/* ---------- Progress bar ---------- */
+.time-widget__progress {
+  width: 100%;
+  height: 3px;
+  background: var(--time-border);
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 2px 0;
+}
+
+.time-widget__progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #19c8b9, #3dd4c6);
+  border-radius: 2px;
+  transition: width 0.9s linear;
+}
+
+/* ---------- Date ---------- */
+.time-widget__date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.time-widget__month-day {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--time-text);
+}
+
+.time-widget__weekday {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--time-text-muted);
+}
+
+/* ---------- Location ---------- */
+.time-widget__location {
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--time-text-muted);
+  letter-spacing: 0.04em;
+  gap: 2px;
+}
+
+/* ---------- Decorative clouds ---------- */
+.time-widget__clouds {
+  position: relative;
+  width: 100%;
+  height: 36px;
+  margin-top: 4px;
+  overflow: visible;
+}
+
+.time-widget__cloud {
+  position: absolute;
+  color: var(--time-text);
+}
+
+.time-widget__cloud--1 {
+  width: 70px;
+  left: 10%;
+  bottom: 2px;
+  animation: cloudDrift1 6s ease-in-out infinite;
+}
+
+.time-widget__cloud--2 {
+  width: 50px;
+  right: 15%;
+  bottom: 6px;
+  animation: cloudDrift2 7s ease-in-out infinite;
+}
+
+.time-widget__cloud--3 {
+  width: 42px;
+  left: 42%;
+  bottom: 0;
+  animation: cloudDrift3 5s ease-in-out infinite;
+}
+
+@keyframes cloudDrift1 {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  50%       { transform: translateX(6px) translateY(-3px); }
+}
+
+@keyframes cloudDrift2 {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  50%       { transform: translateX(-5px) translateY(-2px); }
+}
+
+@keyframes cloudDrift3 {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  50%       { transform: translateX(4px) translateY(-4px); }
+}

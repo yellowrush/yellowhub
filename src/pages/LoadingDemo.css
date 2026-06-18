@@ -1,0 +1,105 @@
+/* Loading Demo Page Styles */
+
+.demo-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.demo-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid rgba(25, 200, 185, 0.2);
+}
+
+.demo-header h1 {
+  font-family: 'Nunito', 'Noto Sans SC', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #794f27;
+  margin: 0 0 0.5rem 0;
+}
+
+.demo-description {
+  font-size: 1.125rem;
+  color: #725d42;
+  margin: 0;
+  font-weight: 600;
+}
+
+.demo-section {
+  margin-bottom: 3rem;
+}
+
+.demo-section h2 {
+  font-family: 'Nunito', 'Noto Sans SC', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #794f27;
+  margin: 0 0 1.5rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(25, 200, 185, 0.1);
+}
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.demo-item {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(121, 79, 39, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.25s ease;
+}
+
+.demo-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(121, 79, 39, 0.15);
+}
+
+.demo-item h3 {
+  font-family: 'Nunito', 'Noto Sans SC', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #725d42;
+  margin: 0;
+}
+
+.demo-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.demo-button {
+  background-color: #19c8b9;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  font-family: 'Nunito', 'Noto Sans SC', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 0 #14857c;
+}
+
+.demo-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #14857c;
+}
+
+.demo-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #14857c;
+}

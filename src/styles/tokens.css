@@ -1,0 +1,186 @@
+/* ============================================
+   YellowHub Design Tokens
+   Based on animal-island-ui variables.less
+   ============================================ */
+
+:root {
+  /* ---------- Color Palette ---------- */
+  --color-primary: #19c8b9;
+  --color-primary-hover: #3dd4c6;
+  --color-primary-active: #50b9ab;
+  --color-primary-bg: #e6f9f6;
+
+  --color-success: #6fba2c;
+  --color-success-hover: #85cc45;
+  --color-success-active: #5a9e1e;
+
+  --color-warning: #f5c31c;
+  --color-warning-hover: #f7d04a;
+  --color-warning-active: #dba90e;
+
+  --color-error: #e05a5a;
+  --color-error-hover: #e87878;
+  --color-error-active: #c94444;
+
+  /* ---------- Neutral / Text ---------- */
+  --color-text: #794f27;
+  --color-text-body: #725d42;
+  --color-text-secondary: #9f927d;
+  --color-text-muted: #8a7b66;
+  --color-text-disabled: #c4b89e;
+
+  /* ---------- Borders ---------- */
+  --color-border: #aaa69d;
+  --color-border-hover: #827157;
+  --color-border-light: #e8e2d6;
+
+  /* ---------- Background ---------- */
+  --color-bg: #f8f8f0;
+  --color-bg-secondary: #f0e8d8;
+  --color-bg-disabled: #f0ece2;
+  --color-bg-content: rgb(247, 243, 223);
+  --color-bg-overlay: rgba(0, 0, 0, 0.35);
+
+  /* ---------- Focus ---------- */
+  --color-focus: #f5c31c;
+
+  /* ---------- Hero specific ---------- */
+  --hero-text-light: #fff9e6;
+  --hero-shadow: rgba(0, 0, 0, 0.4);
+  --hero-bg-from: #2a9d8f;
+  --hero-bg-mid: #19c8b9;
+  --hero-bg-to: #3dd4c6;
+
+  /* ---------- Sea / Footer ---------- */
+  --sea-deep: #0d3b5c;
+  --sea-mid: #0a5f8a;
+  --sea-light: #1a8fbc;
+  --sea-surface: #23b4c8;
+  --sea-foam: #9ee8ef;
+  --sea-sand: #e8d5b0;
+
+  /* ---------- 3D Button shadow ---------- */
+  --shadow-3d: #bdaea0;
+
+  /* ---------- 3D Button ---------- */
+  --btn-3d-bg: #f8f8f0;
+  --btn-3d-shadow: #bdaea0;
+  --btn-primary-shadow: #11a89b;
+
+  /* ---------- Font ---------- */
+  --font-family: 'Nunito', 'Noto Sans SC', -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  --font-size-xs: 10px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 32px;
+  --font-size-3xl: 48px;
+  --font-size-4xl: 60px;
+  --line-height-base: 1.5715;
+
+  /* ---------- Spacing ---------- */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-2xl: 32px;
+  --spacing-3xl: 48px;
+  --spacing-4xl: 64px;
+
+  /* ---------- Border ---------- */
+  --border-radius-sm: 16px;
+  --border-radius-base: 18px;
+  --border-radius-lg: 24px;
+  --border-radius-pill: 50px;
+  --border-width: 2px;
+
+  /* ---------- Shadow ---------- */
+  --shadow-sm: 0 2px 4px 0 rgba(61, 52, 40, 0.06);
+  --shadow-base: 0 3px 10px 0 rgba(61, 52, 40, 0.1);
+  --shadow-lg: 0 8px 24px 0 rgba(61, 52, 40, 0.14);
+
+  /* ---------- Motion ---------- */
+  --motion-duration-fast: 0.15s;
+  --motion-duration-base: 0.25s;
+  --motion-duration-slow: 0.35s;
+  --motion-ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ---------- Size ---------- */
+  --height-sm: 32px;
+  --height-base: 40px;
+  --height-lg: 48px;
+
+  /* ---------- Z-Index ---------- */
+  --z-header: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+
+  /* ---------- Time Widget ---------- */
+  --time-bg: rgba(255, 249, 230, 0.18);
+  --time-border: rgba(255, 249, 230, 0.3);
+  --time-text: #fff9e6;
+  --time-text-muted: rgba(255, 249, 230, 0.75);
+}
+
+/* ============================================
+   Dark Mode Overrides
+   Applied when data-theme="dark" on <html>
+   ============================================ */
+[data-theme="dark"] {
+  /* Text */
+  --color-text: #e8d8c4;
+  --color-text-body: #d4c2a8;
+  --color-text-secondary: #a89880;
+  --color-text-muted: #8a7b66;
+  --color-text-disabled: #504030;
+
+  /* Borders */
+  --color-border: #4a3e30;
+  --color-border-hover: #6a5840;
+  --color-border-light: #3a2e22;
+
+  /* Background */
+  --color-bg: #1a1410;
+  --color-bg-secondary: #221a12;
+  --color-bg-disabled: #2a2018;
+  --color-bg-content: #1e1610;
+  --color-bg-overlay: rgba(0, 0, 0, 0.6);
+
+  /* Primary (slightly lighter for dark bg) */
+  --color-primary: #22d4c4;
+  --color-primary-hover: #3de0d0;
+  --color-primary-bg: rgba(25, 200, 185, 0.15);
+
+  /* Hero -- deeper ocean night feel */
+  --hero-bg-from: #0d3b5c;
+  --hero-bg-mid: #0a4f6e;
+  --hero-bg-to: #0d6080;
+
+  /* Sea footer stays same in dark */
+  --sea-deep: #060d14;
+  --sea-mid: #07283d;
+  --sea-light: #0a4a6e;
+  --sea-surface: #0d6888;
+
+  /* 3D button shadow */
+  --shadow-3d: #1a1208;
+
+  /* 3D Button */
+  --btn-3d-bg: #2a2018;
+  --btn-3d-shadow: #0d0804;
+  --btn-primary-shadow: #0b7e74;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+  --shadow-base: 0 3px 10px 0 rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px 0 rgba(0, 0, 0, 0.5);
+
+  /* Time widget */
+  --time-bg: rgba(0, 0, 0, 0.3);
+  --time-border: rgba(255, 255, 255, 0.15);
+  --time-text: #e8f0f8;
+  --time-text-muted: rgba(200, 220, 240, 0.7);
+}

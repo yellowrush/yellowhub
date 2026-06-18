@@ -20,6 +20,15 @@ const eslintConfig = defineConfig([
       ],
     },
   },
+  // Context / theme files mix providers + hooks in the same file by design.
+  // They are never hot-replaced as component trees, so the react-refresh
+  // warning is not actionable. Suppress it for those files.
+  {
+    files: ["**/i18n/**", "**/theme/**"],
+    rules: {
+      "react-refresh/only-export-components": "off",
+    },
+  },
   // Disable ESLint rules already covered by oxlint
   oxlint.configs["flat/recommended"],
   globalIgnores(["dist/**"]),

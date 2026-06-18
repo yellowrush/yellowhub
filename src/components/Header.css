@@ -1,0 +1,144 @@
+/* ============================================
+   Header Component Styles
+   Inspired by animal-island-ui navigation
+   ============================================ */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  background: rgba(248, 248, 240, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 2px solid var(--color-border-light);
+  transition: background var(--motion-duration-base) var(--motion-ease);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--spacing-md) var(--spacing-xl);
+  height: 60px;
+}
+
+/* ---------- Logo ---------- */
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  text-decoration: none;
+  transition: transform var(--motion-duration-fast) var(--motion-ease);
+}
+
+.header-logo:hover {
+  transform: scale(1.03);
+}
+
+.header-logo-icon {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.header-logo-text {
+  font-family: var(--font-family);
+  font-size: var(--font-size-lg);
+  font-weight: 800;
+  color: var(--color-text);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Navigation ---------- */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.header-link {
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  transition: all var(--motion-duration-fast) var(--motion-ease);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.header-link:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-bg);
+}
+
+.header-link.active {
+  color: var(--color-primary);
+  background: var(--color-primary-bg);
+  font-weight: 700;
+}
+
+.header-link-external svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* ---------- Mobile Toggle ---------- */
+.header-mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-sm);
+}
+
+.header-mobile-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+  transition: all var(--motion-duration-fast) var(--motion-ease);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .header-content {
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+
+  .header-mobile-toggle {
+    display: flex;
+  }
+
+  .header-nav {
+    display: none;
+    position: absolute;
+    top: 62px;
+    left: 0;
+    right: 0;
+    background: rgba(248, 248, 240, 0.98);
+    backdrop-filter: blur(8px);
+    flex-direction: column;
+    padding: var(--spacing-lg);
+    gap: var(--spacing-sm);
+    border-bottom: 2px solid var(--color-border-light);
+  }
+
+  .header-nav.open {
+    display: flex;
+  }
+
+  .header-link {
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: var(--font-size-md);
+  }
+}

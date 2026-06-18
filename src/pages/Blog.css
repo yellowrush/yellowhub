@@ -1,0 +1,152 @@
+/* Blog Page Styles */
+
+.blog-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid rgba(25, 200, 185, 0.2);
+}
+
+.blog-header h1 {
+  font-family: 'Nunito', 'Noto Sans SC', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #794f27;
+  margin: 0 0 0.5rem 0;
+}
+
+.blog-description {
+  font-size: 1.125rem;
+  color: #725d42;
+  margin: 0;
+  font-weight: 600;
+}
+
+.blog-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.blog-post-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 2px 8px rgba(121, 79, 39, 0.1);
+  transition: all 0.25s ease;
+  border: 2px solid transparent;
+}
+
+.blog-post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(121, 79, 39, 0.15);
+  border-color: #19c8b9;
+}
+
+.post-title {
+  font-family: 'Nunito', 'Noto Sans SC', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #794f27;
+  margin: 0 0 0.75rem 0;
+}
+
+.post-excerpt {
+  font-size: 1rem;
+  color: #725d42;
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.post-date {
+  font-size: 0.875rem;
+  color: #9f927d;
+  font-weight: 600;
+}
+
+.post-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.post-tag {
+  background-color: rgba(25, 200, 185, 0.1);
+  color: #19c8b9;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid rgba(25, 200, 185, 0.3);
+}
+
+/* Error State */
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 2rem;
+}
+
+.error-container h2 {
+  font-family: 'Nunito', 'Noto Sans SC', sans-serif;
+  color: #794f27;
+  margin: 0 0 1rem 0;
+}
+
+.error-container p {
+  color: #725d42;
+  margin: 0 0 2rem 0;
+}
+
+.retry-button {
+  background-color: #19c8b9;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  font-family: 'Nunito', 'Noto Sans SC', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 0 #14857c;
+}
+
+.retry-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #14857c;
+}
+
+.retry-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #14857c;
+}
+
+/* Loading state */
+.blog-page > div[class*="loading"] {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

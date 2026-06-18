@@ -1,0 +1,283 @@
+/* ============================================
+   Footer — Sea Ocean Theme
+   Deep sea with waves, bubbles, fish & seaweed
+   ============================================ */
+
+.footer-sea {
+  position: relative;
+  margin-top: auto;
+  overflow: hidden;
+}
+
+/* ---------- Wave transition ---------- */
+.footer-sea-waves {
+  display: block;
+  line-height: 0;
+  background: transparent;
+}
+
+.footer-sea-waves svg {
+  display: block;
+  width: 100%;
+}
+
+/* ---------- Sea Body ---------- */
+.footer-sea-body {
+  position: relative;
+  background: linear-gradient(180deg,
+    var(--sea-mid) 0%,
+    var(--sea-deep) 60%,
+    #040a10 100%
+  );
+  padding: 32px 24px 20px;
+  overflow: hidden;
+}
+
+/* ---------- Bubbles ---------- */
+.footer-sea-bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.sea-bubble {
+  position: absolute;
+  bottom: 10%;
+  border-radius: 50%;
+  background: rgba(158, 232, 239, 0.25);
+  border: 1px solid rgba(158, 232, 239, 0.4);
+  animation: bubbleRise 6s ease-in infinite;
+}
+
+@keyframes bubbleRise {
+  0%   { transform: translateY(0) scale(1);   opacity: 0; }
+  10%  { opacity: 0.8; }
+  90%  { opacity: 0.4; }
+  100% { transform: translateY(-300px) scale(1.15); opacity: 0; }
+}
+
+/* ---------- Fish ---------- */
+.footer-sea-fish {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sea-fish {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Swim left → right (fish faces right via scaleX(-1)) */
+@keyframes fishSwimRight {
+  0%   { transform: translateX(-80px) scaleX(-1); }
+  100% { transform: translateX(calc(100vw + 80px)) scaleX(-1); }
+}
+
+/* Swim right → left (fish faces left, natural SVG direction) */
+@keyframes fishSwimLeft {
+  0%   { transform: translateX(calc(100vw + 80px)); }
+  100% { transform: translateX(-80px); }
+}
+
+/* ---------- Content ---------- */
+.footer-sea-content {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px 48px;
+  max-width: 960px;
+  margin: 0 auto 24px;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Brand ---------- */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-brand-icon {
+  font-size: 20px;
+}
+
+.footer-brand-name {
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--sea-foam);
+  margin: 0;
+}
+
+.footer-brand-tagline {
+  font-size: 13px;
+  color: rgba(158, 232, 239, 0.7);
+  font-weight: 500;
+  max-width: 280px;
+  line-height: 1.5;
+}
+
+/* ---------- Links ---------- */
+.footer-links {
+  display: flex;
+  gap: 32px;
+}
+
+.footer-link-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-link-group-title {
+  font-family: var(--font-family);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--sea-foam);
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.footer-link {
+  font-family: var(--font-family);
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(158, 232, 239, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--sea-foam);
+}
+
+/* ---------- Bottom bar ---------- */
+.footer-sea-bottom {
+  position: relative;
+  z-index: 1;
+  max-width: 960px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(158, 232, 239, 0.15);
+  padding-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-copyright {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(158, 232, 239, 0.5);
+}
+
+/* ---------- Toggle buttons ---------- */
+.footer-toggles {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.footer-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-family);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 50px;
+  border: 1.5px solid rgba(158, 232, 239, 0.3);
+  background: rgba(158, 232, 239, 0.08);
+  color: rgba(158, 232, 239, 0.85);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.footer-toggle-btn:hover {
+  background: rgba(158, 232, 239, 0.18);
+  border-color: rgba(158, 232, 239, 0.6);
+  color: var(--sea-foam);
+  transform: translateY(-1px);
+}
+
+.footer-toggle-btn:active {
+  transform: translateY(0);
+}
+
+/* ---------- Sea floor ---------- */
+.footer-sea-floor {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 16px;
+  padding: 12px 0 4px;
+  margin-top: 8px;
+}
+
+.sea-seaweed {
+  font-size: 20px;
+  animation: seaweedSway 3s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.sea-seaweed--1 { animation-delay: 0s; }
+.sea-seaweed--2 { animation-delay: 0.5s; }
+.sea-seaweed--3 { animation-delay: 1s; }
+
+@keyframes seaweedSway {
+  0%, 100% { transform: rotate(-8deg); }
+  50%       { transform: rotate(8deg); }
+}
+
+.sea-coral {
+  font-size: 18px;
+}
+
+.sea-star {
+  font-size: 12px;
+  animation: starGlow 2s ease-in-out infinite;
+}
+
+@keyframes starGlow {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .footer-sea-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footer-links {
+    gap: 24px;
+  }
+
+  .footer-sea-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
