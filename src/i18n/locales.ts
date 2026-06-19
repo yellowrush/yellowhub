@@ -26,7 +26,7 @@ export interface Translations {
     nav_games: string;
     connect_title: string;
     connect_github: string;
-    connect_resume: string;
+    connect_email: string;
     copyright: string;
     toggle_lang: string;
     toggle_darkmode: string;
@@ -88,7 +88,7 @@ export const translations: Record<Locale, Translations> = {
       nav_games: 'Games',
       connect_title: 'Connect',
       connect_github: 'GitHub',
-      connect_resume: 'Resume',
+      connect_email: 'Email',
       copyright: '© 2026 Tom Huang',
       toggle_lang: '中文',
       toggle_darkmode: '🌙 Dark',
@@ -148,7 +148,7 @@ export const translations: Record<Locale, Translations> = {
       nav_games: '小游戏',
       connect_title: '联系',
       connect_github: 'GitHub',
-      connect_resume: '简历',
+      connect_email: '邮箱',
       copyright: '© 2026 Tom Huang',
       toggle_lang: 'EN',
       toggle_darkmode: '🌙 夜间',

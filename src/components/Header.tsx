@@ -30,26 +30,11 @@ export default function Header() {
 
         <nav className={`header-nav ${mobileMenuOpen ? 'open' : ''}`}>
           <NavLink
-            to="/"
-            end
-            className={({ isActive }) => `header-link ${isActive ? 'active' : ''}`}
-            onClick={closeMobileMenu}
-          >
-            {t.footer.nav_home}
-          </NavLink>
-          <NavLink
             to="/blog"
             className={({ isActive }) => `header-link ${isActive ? 'active' : ''}`}
             onClick={closeMobileMenu}
           >
             {t.footer.nav_blog}
-          </NavLink>
-          <NavLink
-            to="/games"
-            className={({ isActive }) => `header-link ${isActive ? 'active' : ''}`}
-            onClick={closeMobileMenu}
-          >
-            {t.footer.nav_games}
           </NavLink>
           <a
             href="https://github.com/yellowrush"

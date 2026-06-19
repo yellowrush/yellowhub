@@ -156,11 +156,11 @@ export default function Footer() {
           <div className="footer-links">
             <div className="footer-link-group">
               <h3 className="footer-link-group-title">{t.footer.nav_title}</h3>
-              <Link to="/" className="footer-link">
-                {t.footer.nav_home}
-              </Link>
               <Link to="/blog" className="footer-link">
                 {t.footer.nav_blog}
+              </Link>
+              <Link to="/games" className="footer-link">
+                {t.footer.nav_games}
               </Link>
             </div>
             <div className="footer-link-group">
@@ -176,12 +176,10 @@ export default function Footer() {
                 {t.footer.connect_github}
               </a>
               <a
-                href="https://github.com/yellowrush/resume"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="mailto:huangchon@gmail.com"
                 className="footer-link"
               >
-                {t.footer.connect_resume}
+                {t.footer.connect_email}
               </a>
             </div>
           </div>
