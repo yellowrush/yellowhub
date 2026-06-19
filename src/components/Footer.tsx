@@ -87,14 +87,12 @@ const Fish = ({ style, size = 32 }: { style?: React.CSSProperties; size?: number
 
 /* ---------- Fish Config ---------- */
 const FISH_CONFIG = [
-  // Swim right (→)
-  { color: '#9ee8ef', size: 32, top: '15%', duration: '14s', delay: '0s', dir: 'right' as const },
-  { color: '#19c8b9', size: 28, top: '35%', duration: '18s', delay: '4s', dir: 'right' as const },
-  { color: '#5ec4d4', size: 22, top: '55%', duration: '11s', delay: '2s', dir: 'right' as const },
-  // Swim left (←)
-  { color: '#9ee8ef', size: 26, top: '25%', duration: '16s', delay: '6s', dir: 'left' as const },
-  { color: '#19c8b9', size: 34, top: '45%', duration: '20s', delay: '1s', dir: 'left' as const },
-  { color: '#7dd8e0', size: 20, top: '68%', duration: '10s', delay: '5s', dir: 'left' as const },
+  { id: 'fish-r1', color: '#9ee8ef', size: 32, top: '15%', duration: '14s', delay: '0s', dir: 'right' as const },
+  { id: 'fish-r2', color: '#19c8b9', size: 28, top: '35%', duration: '18s', delay: '4s', dir: 'right' as const },
+  { id: 'fish-r3', color: '#5ec4d4', size: 22, top: '55%', duration: '11s', delay: '2s', dir: 'right' as const },
+  { id: 'fish-l1', color: '#9ee8ef', size: 26, top: '25%', duration: '16s', delay: '6s', dir: 'left' as const },
+  { id: 'fish-l2', color: '#19c8b9', size: 34, top: '45%', duration: '20s', delay: '1s', dir: 'left' as const },
+  { id: 'fish-l3', color: '#7dd8e0', size: 20, top: '68%', duration: '10s', delay: '5s', dir: 'left' as const },
 ];
 
 export default function Footer() {
@@ -126,9 +124,9 @@ export default function Footer() {
 
         {/* Fish decorations */}
         <div className="footer-sea-fish" aria-hidden="true">
-          {FISH_CONFIG.map((f, i) => (
+            {FISH_CONFIG.map((f) => (
             <Fish
-              key={i}
+              key={f.id}
               size={f.size}
               style={{
                 color: f.color,

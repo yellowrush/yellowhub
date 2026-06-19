@@ -76,10 +76,10 @@ export default function LoadingDemo() {
       <div className="demo-section">
         <h2>Interactive Demos</h2>
         <div className="demo-buttons">
-          <button className="demo-button" onClick={handleShowFullPage}>
+          <button type="button" className="demo-button" onClick={handleShowFullPage}>
             Show Full Page Loading (3s)
           </button>
-          <button className="demo-button" onClick={handleShowOverlay}>
+          <button type="button" className="demo-button" onClick={handleShowOverlay}>
             Show Overlay Loading (3s)
           </button>
         </div>

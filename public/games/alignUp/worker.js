@@ -1,3 +1,4 @@
+// react-doctor-disable no-this-in-sfc -- this file is a web worker, not a React component
 // constants
 const TOTAL_COLUMNS = 7;
 const TOTAL_ROWS = 7;

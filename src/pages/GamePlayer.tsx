@@ -76,7 +76,7 @@ export default function GamePlayer() {
             src={game.url}
             title={title}
             onLoad={handleLoad}
-            sandbox="allow-scripts allow-same-origin allow-forms allow-modals"
+            sandbox="allow-scripts allow-forms allow-modals"
           />
         )}
       </div>

@@ -22,6 +22,8 @@ export default function Blog() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    let cancelled = false;
+
     // Simulate API call
     const fetchPosts = async () => {
       setLoading(true);
@@ -30,6 +32,8 @@ export default function Blog() {
       try {
         // Simulate network delay
         await new Promise((resolve) => setTimeout(resolve, 2000));
+
+        if (cancelled) return;
 
         // Mock data
         const mockPosts: BlogPost[] = [
@@ -58,14 +62,19 @@ export default function Blog() {
 
         setPosts(mockPosts);
       } catch (err) {
+        if (cancelled) return;
         console.error('Failed to fetch blog posts:', err);
         setError('Failed to load blog posts. Please try again.');
       } finally {
-        setLoading(false);
+        if (!cancelled) setLoading(false);
       }
     };
 
     fetchPosts();
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const handleRetry = () => {
@@ -96,7 +105,7 @@ export default function Blog() {
         <div className="error-container">
           <h2>Oops! Something went wrong</h2>
           <p>{error}</p>
-          <button className="retry-button" onClick={handleRetry}>
+          <button type="button" className="retry-button" onClick={handleRetry}>
             Try Again
           </button>
         </div>

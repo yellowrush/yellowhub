@@ -22,7 +22,8 @@ const config: ReactDoctorConfig = {
 
   rules: {
     "react-doctor/react-in-jsx-scope": "off",
-    "react-doctor/no-initialize-state": "off"
+    "react-doctor/no-initialize-state": "off",
+    "react-doctor/no-this-in-sfc": "off"
   }
 };
 

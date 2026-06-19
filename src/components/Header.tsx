@@ -19,6 +19,7 @@ export default function Header() {
         </Link>
 
         <button
+          type="button"
           className="header-mobile-toggle"
           onClick={toggleMobileMenu}
           aria-label="Toggle navigation menu"
