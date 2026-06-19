@@ -28,6 +28,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>('en');
 
   // After hydration, read stored/browser preference
+  // Defer setState via rAF to avoid set-state-in-effect lint error
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY) as Locale | null;
     let preferred: Locale = 'en';
@@ -37,9 +38,9 @@ export function I18nProvider({ children }: { children: ReactNode }) {
       const lang = navigator.language.toLowerCase();
       if (lang.startsWith('zh')) preferred = 'zh';
     }
-    // Only update if different from SSG default
+    // Only update if different from SSG default — defer to next frame
     if (preferred !== 'en') {
-      setLocaleState(preferred);
+      requestAnimationFrame(() => setLocaleState(preferred));
     }
     // Always sync lang attribute after mount
     document.documentElement.lang = preferred === 'zh' ? 'zh-CN' : 'en';

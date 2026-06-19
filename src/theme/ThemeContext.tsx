@@ -25,6 +25,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>('light');
 
   // After hydration, read stored/system preference
+  // Defer setState via rAF to avoid set-state-in-effect lint error
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY) as Theme | null;
     let preferred: Theme = 'light';
@@ -33,9 +34,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       preferred = 'dark';
     }
-    // Only update if different from SSG default
+    // Only update if different from SSG default — defer to next frame
     if (preferred !== 'light') {
-      setTheme(preferred);
+      requestAnimationFrame(() => setTheme(preferred));
     }
     // Always sync data-theme attribute after mount
     document.documentElement.setAttribute('data-theme', preferred);

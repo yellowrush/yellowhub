@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { useI18n } from '../i18n/I18nContext';
-import { gameList } from './Games';
+import { gameList } from '../data/gameList';
 import './GamePlayer.css';
 
 /**
