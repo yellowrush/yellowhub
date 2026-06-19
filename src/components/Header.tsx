@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import { useI18n } from '../i18n/I18nContext';
 import './Header.css';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useI18n();
 
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
   const closeMobileMenu = () => setMobileMenuOpen(false);
@@ -33,14 +35,21 @@ export default function Header() {
             className={({ isActive }) => `header-link ${isActive ? 'active' : ''}`}
             onClick={closeMobileMenu}
           >
-            Home
+            {t.footer.nav_home}
           </NavLink>
           <NavLink
             to="/blog"
             className={({ isActive }) => `header-link ${isActive ? 'active' : ''}`}
             onClick={closeMobileMenu}
           >
-            Blog
+            {t.footer.nav_blog}
+          </NavLink>
+          <NavLink
+            to="/games"
+            className={({ isActive }) => `header-link ${isActive ? 'active' : ''}`}
+            onClick={closeMobileMenu}
+          >
+            {t.footer.nav_games}
           </NavLink>
           <a
             href="https://github.com/yellowrush"

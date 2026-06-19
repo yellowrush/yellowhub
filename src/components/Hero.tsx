@@ -94,30 +94,34 @@ function Typewriter({ lines, typingSpeed = 50, pauseDuration = 1800, deletingSpe
   pauseDuration?: number;
   deletingSpeed?: number;
 }) {
+  // Pre-split lines into proper Unicode character arrays (handles emoji surrogate pairs)
+  // Stable across renders — stored in a ref, never in the dependency array.
+  const charLinesRef = useRef(lines.map((l) => [...l]));
   const [displayText, setDisplayText] = useState('');
   const [cursorVisible, setCursorVisible] = useState(true);
-  const stateRef = useRef<{ lineIndex: number; charIndex: number; phase: TypewriterPhase }>({
+  const stateRef = useRef<{
+    lineIndex: number;
+    charIndex: number; // index into charLinesRef[lineIndex] array
+    phase: TypewriterPhase;
+  }>({
     lineIndex: 0, charIndex: 0, phase: 'typing',
   });
-  // Because this component remounts on locale change (key=locale in parent),
-  // `lines` never changes while mounted — a plain ref initialised once is enough.
-  const linesRef = useRef(lines);
 
-  // Ticker effect — runs once on mount, cleaned up on unmount
+  // Ticker effect — runs exactly once on mount, cleaned up on unmount (key=locale remounts)
   useEffect(() => {
     const timeoutRef = { current: null as ReturnType<typeof setTimeout> | null };
 
     function tick() {
       const { lineIndex, charIndex, phase } = stateRef.current;
-      const currentLines = linesRef.current;
-      if (currentLines.length === 0) return;
-      const currentLine = currentLines[lineIndex];
+      const charLines = charLinesRef.current;
+      if (charLines.length === 0) return;
+      const currentChars = charLines[lineIndex];
 
       if (phase === 'typing') {
-        if (charIndex < currentLine.length) {
+        if (charIndex < currentChars.length) {
           const next = charIndex + 1;
           stateRef.current.charIndex = next;
-          setDisplayText(currentLine.slice(0, next));
+          setDisplayText(currentChars.slice(0, next).join(''));
           timeoutRef.current = setTimeout(tick, typingSpeed);
         } else {
           stateRef.current.phase = 'pause';
@@ -130,10 +134,10 @@ function Typewriter({ lines, typingSpeed = 50, pauseDuration = 1800, deletingSpe
         if (charIndex > 0) {
           const next = charIndex - 1;
           stateRef.current.charIndex = next;
-          setDisplayText(currentLine.slice(0, next));
+          setDisplayText(currentChars.slice(0, next).join(''));
           timeoutRef.current = setTimeout(tick, deletingSpeed);
         } else {
-          stateRef.current.lineIndex = (lineIndex + 1) % currentLines.length;
+          stateRef.current.lineIndex = (lineIndex + 1) % charLines.length;
           stateRef.current.phase = 'typing';
           timeoutRef.current = setTimeout(tick, typingSpeed);
         }
@@ -142,7 +146,7 @@ function Typewriter({ lines, typingSpeed = 50, pauseDuration = 1800, deletingSpe
 
     timeoutRef.current = setTimeout(tick, typingSpeed);
     return () => { if (timeoutRef.current) clearTimeout(timeoutRef.current); };
-  }, [typingSpeed, pauseDuration, deletingSpeed]); // speed constants are stable props
+  }, [typingSpeed, pauseDuration, deletingSpeed]);
 
   // Cursor blink
   useEffect(() => {

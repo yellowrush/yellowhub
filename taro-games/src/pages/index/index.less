@@ -1,0 +1,88 @@
+/* ============================================
+   Game Index Page — Warm Style
+   ============================================ */
+
+.games-index {
+  min-height: 100vh;
+  background: #fdf6ec;
+  padding: 0 0 80px;
+}
+
+.games-index__header {
+  padding: 40px 24px 28px;
+  background: linear-gradient(135deg, #19c8b9 0%, #11a89b 100%);
+  text-align: center;
+}
+
+.games-index__title {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 6px;
+}
+
+.games-index__subtitle {
+  display: block;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.games-index__list {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: -8px;
+}
+
+/* ---------- Game Item Card ---------- */
+.game-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: white;
+  border-radius: 16px;
+  padding: 18px 16px;
+  box-shadow: 0 4px 0 0 #bdaea0;
+  border: 1.5px solid rgba(189, 174, 160, 0.3);
+  transition: transform 0.15s ease;
+  cursor: pointer;
+}
+
+.game-item:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 0 #bdaea0;
+}
+
+.game-item__emoji {
+  font-size: 36px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.game-item__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.game-item__title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #794f27;
+}
+
+.game-item__desc {
+  font-size: 13px;
+  color: #9f927d;
+  line-height: 1.4;
+}
+
+.game-item__arrow {
+  font-size: 22px;
+  color: #19c8b9;
+  flex-shrink: 0;
+  font-weight: 700;
+}

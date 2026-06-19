@@ -1,0 +1,147 @@
+/* ============================================
+   Homepage Games Section
+   Warm card showcase with animal-island-ui style
+   ============================================ */
+
+.homepage-games {
+  padding: 72px 24px 80px;
+  background: var(--color-bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative top wave divider */
+.homepage-games::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--color-bg);
+  clip-path: ellipse(60% 100% at 50% 0%);
+}
+
+/* ---------- Header ---------- */
+.homepage-games__header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.homepage-games__eyebrow {
+  display: inline-block;
+  font-size: 36px;
+  margin-bottom: 8px;
+  animation: bobble 2.5s ease-in-out infinite;
+}
+
+@keyframes bobble {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50%       { transform: translateY(-8px) rotate(5deg); }
+}
+
+.homepage-games__title {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--color-text);
+  margin: 0 0 12px;
+  letter-spacing: -0.5px;
+}
+
+.homepage-games__subtitle {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ---------- Grid ---------- */
+.homepage-games__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
+
+/* ---------- Game Card ---------- */
+.hp-game-card {
+  background: var(--color-surface);
+  border: 2px solid var(--color-border-light);
+  border-radius: 20px;
+  padding: 28px 20px 24px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 0 0 var(--shadow-3d);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.hp-game-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 0 0 var(--shadow-3d), 0 12px 28px rgba(189, 174, 160, 0.25);
+}
+
+.hp-game-card__thumb {
+  width: 100%;
+  aspect-ratio: 7 / 5;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 14px;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-light);
+}
+
+.hp-game-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.hp-game-card:hover .hp-game-card__thumb img {
+  transform: scale(1.05);
+}
+
+.hp-game-card__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 8px;
+}
+
+.hp-game-card__desc {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ---------- CTA ---------- */
+.homepage-games__cta {
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .homepage-games__grid {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+  }
+
+  .homepage-games__title {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .homepage-games__grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 600px;
+  }
+}

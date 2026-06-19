@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!--  Meta  -->
+  <meta charset="UTF-8" />
+  <title>Align 4 Game</title>
+
+  <!--  Styles  -->
+  <link href="https://fonts.googleapis.com/css?family=Doppio+One" rel="stylesheet">
+  <link rel="stylesheet" href="index.processed.css">
+
+<style id="yellowhub-warm-theme">
+/* ================================================
+   YellowHub Warm Theme Overlay — animal-island-ui
+   Primary palette: cream / warm brown / mint teal
+   ================================================ */
+
+:root {
+  --warm-bg: #fdf6ec;
+  --warm-bg2: #fff9f0;
+  --warm-text: #794f27;
+  --warm-text-light: #a8845e;
+  --warm-accent: #19c8b9;
+  --warm-accent-dark: #11a89b;
+  --warm-shadow: #bdaea0;
+  --warm-border: rgba(189, 174, 160, 0.4);
+  --warm-card: rgba(255, 249, 240, 0.95);
+  --warm-danger: #e05c5c;
+  --warm-success: #5cb85c;
+  --warm-btn-shadow: 0 4px 0 0 var(--warm-shadow);
+}
+
+/* --- YellowHub game header bar --- */
+#yellowhub-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9999 !important;
+  height: 44px !important;
+  background: var(--warm-bg) !important;
+  border-bottom: 1px solid var(--warm-border) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 16px !important;
+  font-family: 'Nunito', 'Avenir Next', Avenir, sans-serif !important;
+  box-shadow: 0 2px 8px rgba(189, 174, 160, 0.2) !important;
+}
+
+#yellowhub-header a {
+  text-decoration: none !important;
+  color: var(--warm-text) !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+#yellowhub-header a:hover {
+  color: var(--warm-accent) !important;
+}
+
+#yellowhub-header .header-title {
+  color: var(--warm-text) !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+}
+
+/* --- Warm body background for games without explicit bg --- */
+body {
+  font-family: 'Nunito', 'Avenir Next', Avenir, sans-serif !important;
+}
+
+/* --- dragUp & lineUp: override dark/gray backgrounds --- */
+.level-list {
+  background: var(--warm-bg) !important;
+}
+
+.level-list__item {
+  background: var(--warm-bg2) !important;
+  color: var(--warm-text) !important;
+  border: 1px solid var(--warm-border) !important;
+}
+
+.level-list__item:hover {
+  background: white !important;
+  color: var(--warm-accent) !important;
+  border-color: var(--warm-accent) !important;
+}
+
+.level-list__item.is-playing {
+  background: var(--warm-accent) !important;
+  color: white !important;
+  border-color: var(--warm-accent-dark) !important;
+}
+
+.level-list__item__check {
+  background: var(--warm-text) !important;
+}
+
+/* --- Buttons: override #09F, #BBB, #2ecc71 blue/gray/green to warm style --- */
+.button,
+button:not(#yellowhub-header button):not([class*="swal"]) {
+  font-family: 'Nunito', 'Avenir Next', Avenir, sans-serif !important;
+  background: var(--warm-bg2) !important;
+  color: var(--warm-text) !important;
+  border: 1px solid var(--warm-border) !important;
+  border-radius: 8px !important;
+  box-shadow: var(--warm-btn-shadow) !important;
+  transition: transform 0.1s, box-shadow 0.1s !important;
+}
+
+.button:hover,
+button:not(#yellowhub-header button):not([class*="swal"]):hover {
+  background: var(--warm-accent) !important;
+  color: white !important;
+  border-color: var(--warm-accent-dark) !important;
+  box-shadow: 0 5px 0 0 var(--warm-accent-dark) !important;
+  transform: translateY(-1px) !important;
+}
+
+.button:active,
+button:not(#yellowhub-header button):not([class*="swal"]):active {
+  transform: translateY(2px) !important;
+  box-shadow: 0 1px 0 0 var(--warm-shadow) !important;
+}
+
+.next-level-button {
+  background: var(--warm-accent) !important;
+}
+
+.next-level-button:hover {
+  background: var(--warm-accent-dark) !important;
+}
+
+/* --- lineUp: override dark navy background --- */
+body[style*="background-color: #2c3e50"],
+body[style*="background:#2c3e50"] {
+  background-color: var(--warm-bg) !important;
+}
+
+section {
+  background-color: var(--warm-bg2) !important;
+}
+
+/* --- findUp: override bright background colors to warm pastels --- */
+.card-flipped-front {
+  background: var(--warm-bg) !important;
+}
+
+/* --- alignUp: sidebar panel --- */
+.sidebar h1,
+.sidebar h2 {
+  color: var(--warm-text) !important;
+  font-family: 'Nunito', sans-serif !important;
+}
+
+.panel {
+  background: var(--warm-bg2) !important;
+  border: 1px solid var(--warm-border) !important;
+  border-radius: 12px !important;
+}
+
+.start button {
+  background: var(--warm-accent) !important;
+  color: white !important;
+  box-shadow: 0 4px 0 0 var(--warm-accent-dark) !important;
+}
+
+/* --- Radio buttons warm accent --- */
+input[type="radio"]:checked {
+  accent-color: var(--warm-accent) !important;
+}
+
+/* --- Make room for the header bar (44px) --- */
+body {
+  padding-top: 44px !important;
+}
+
+canvas {
+  top: 44px !important;
+}
+
+/* --- Wrapper warm background --- */
+.wrapper {
+  background: var(--warm-bg) !important;
+}
+</style>
+
+</head>
+<body>
+
+<div id="yellowhub-header">
+  <a href="javascript:window.close ? window.close() : history.back()">← 返回</a>
+  <span class="header-title">🎮 Align Up — 四子棋</span>
+  <a href="/" style="font-size:12px; opacity:0.6;">YellowHub</a>
+</div>
+
+  <div class="wrapper">
+    <div class="content">
+      <div class="sidebar">
+        <h1>Align 4</h1>
+        <div class="panel dif">
+          <h2>Difficulty</h2>
+          <div class="dif-options">
+            <div>
+              <input id="dif3" type="radio" name="dif-options" value="3">
+              <label for="dif3">3</label>
+            </div>
+            <div>
+              <input id="dif4" type="radio" name="dif-options" value="4" checked>
+              <label for="dif4">4</label>
+            </div>
+            <div>
+              <input id="dif5" type="radio" name="dif-options" value="5">
+              <label for="dif5">5</label>
+            </div>
+          </div>
+          <div class="start">
+            <button>Start Game</button>
+          </div>
+        </div>
+        <div class="panel info">
+          <h2></h2>
+          <div class="blurb"></div>
+          <div class="outlook"></div>
+        </div>
+      </div>
+      <div class="board">
+        <div class="lit-columns">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="lit-cells"></div>
+        <div class="chips"></div>
+        <div class="click-columns">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    // constants
+    const WEB_WORKER_URL = './worker.js';
+    const BLURBS = {
+      'start': {
+        header: 'Get Ready',
+        blurb: 'Select your difficulty and start the game.'
+      },
+      'p1-turn': {
+        header: 'Your Turn',
+        blurb: 'Click on the board to drop your chip.'
+      },
+      'p2-turn': {
+        header: 'Computer\'s Turn',
+        blurb: 'The computer is trying to find the best way to make you lose.'
+      },
+      'p1-win': {
+        header: 'You Win',
+        blurb: 'You are a winner. Remember this moment. Carry it with you, forever.'
+      },
+      'p2-win': {
+        header: 'Computer Wins',
+        blurb: 'Try again when you\'re done wiping your tears of shame.'
+      },
+      'tie': {
+        header: 'Tie',
+        blurb: 'Everyone\'s a winner! Or loser. Depends on how you look at it.'
+      }
+    };
+    const OUTLOOKS = {
+      'win-imminent': 'Uh oh, computer is feeling saucy!',
+      'loss-imminent': 'Computer is unsure. Now\'s your chance!'
+    };
+
+    // global variables
+    var worker;
+    var currentGameState;
+
+    // document ready
+    $(function() {
+      $('.start button').on('click', startGame);
+      setBlurb('start');
+      setOutlook();
+
+      // create worker
+      worker = new Worker(WEB_WORKER_URL);
+      worker.addEventListener('message', function(e) {
+        switch(e.data.messageType) {
+          case 'reset-done':
+            startHumanTurn();
+            break;
+          case 'human-move-done':
+            endHumanTurn(e.data.coords, e.data.isWin, e.data.winningChips, e.data.isBoardFull);
+            break;
+          case 'progress':
+            updateComputerTurn(e.data.col);
+            break;
+          case 'computer-move-done':
+            endComputerTurn(e.data.coords, e.data.isWin, e.data.winningChips, e.data.isBoardFull,
+              e.data.isWinImminent, e.data.isLossImminent);
+            break;
+        }
+      }, false);
+    });
+
+    function setBlurb(key) {
+      $('.info h2').text(BLURBS[key].header);
+      $('.info .blurb').text(BLURBS[key].blurb);
+    }
+
+    function setOutlook(key) {
+      var $outlook = $('.info .outlook');
+      if(key) {
+        $outlook
+          .text(OUTLOOKS[key])
+          .show();
+      } else {
+        $outlook.hide();
+      }
+    }
+
+    function startGame() {
+      $('.dif').addClass('freeze');
+      $('.dif input').prop('disabled', true);
+      $('.lit-cells, .chips').empty();
+
+      worker.postMessage({
+        messageType: 'reset',
+      });
+    }
+
+    function startHumanTurn() {
+      setBlurb('p1-turn');
+      $('.click-columns div').addClass('hover');
+
+      // if mouse is already over a column, show cursor chip there
+      var col = $('.click-columns div:hover').index();
+      if(col !== -1) {
+        createCursorChip(1, col);
+      }
+
+      $('.click-columns')
+        .on('mouseenter', function() {
+          var col = $('.click-columns div:hover').index();
+          createCursorChip(1, col);
+        })
+        .on('mouseleave', function() {
+          destroyCursorChip();
+        });
+
+      $('.click-columns div')
+        .on('mouseenter', function() {
+          var col = $(this).index();
+          moveCursorChip(col);
+        })
+        .on('click', function() {
+          $('.click-columns, .click-columns div').off();
+
+          var col = $(this).index();
+          worker.postMessage({
+            messageType: 'human-move',
+            col: col
+          });
+        });
+    }
+
+    function endHumanTurn(coords, isWin, winningChips, isBoardFull) {
+      $('.click-columns div').removeClass('hover');
+      if(!coords) {
+        // column was full, human goes again
+        startHumanTurn();
+      } else {
+        dropCursorChip(coords.row, function() {
+          if(isWin) {
+            endGame('p1-win', winningChips);
+          } else if(isBoardFull) {
+            endGame('tie');
+          } else {
+            // pass turn to computer
+            startComputerTurn();
+          }
+        });
+      }
+    }
+
+    function startComputerTurn() {
+      setBlurb('p2-turn');
+
+      // computer's cursor chip starts far left and moves right as it thinks
+      createCursorChip(2, 0);
+
+      var maxDepth = parseInt($('input[name=dif-options]:checked').val(), 10) + 1;
+      worker.postMessage({
+        messageType: 'computer-move',
+        maxDepth: maxDepth
+      });
+    }
+
+    function updateComputerTurn(col) {
+      moveCursorChip(col);
+    }
+
+    function endComputerTurn(coords, isWin, winningChips, isBoardFull, isWinImminent, isLossImminent) {
+      moveCursorChip(coords.col, function() {
+        dropCursorChip(coords.row, function() {
+          if (isWin) {
+            endGame('p2-win', winningChips);
+          } else if (isBoardFull) {
+            endGame('tie');
+          } else {
+            if(isWinImminent) {
+              setOutlook('win-imminent');
+            } else if (isLossImminent) {
+              setOutlook('loss-imminent');
+            } else {
+              setOutlook();
+            }
+
+            // pass turn to human
+            startHumanTurn();
+          }
+        });
+      });
+    }
+
+    function endGame(blurbKey, winningChips) {
+      $('.dif').removeClass('freeze');
+      $('.dif input').prop('disabled', false);
+      setBlurb(blurbKey);
+      setOutlook();
+
+      if(winningChips) {
+        // not a tie, highlight the chips in the winning run
+        for(var i = 0; i < winningChips.length; i++) {
+          createLitCell(winningChips[i].col, winningChips[i].row);
+        }
+      }
+    }
+
+    function createLitCell(col, row) {
+      $('<div>')
+      .css({
+        'left': indexToPixels(col),
+        'bottom': indexToPixels(row)
+      })
+      .appendTo('.lit-cells');
+    }
+
+    function createCursorChip(player, col) {
+      var playerClass = 'p' + player;
+      $('<div>', { 'class': 'cursor ' + playerClass })
+        .css('left', indexToPixels(col))
+        .appendTo('.chips');
+
+      // also highlight column
+      $('.lit-columns div').eq(col).addClass('lit');
+    }
+
+    function destroyCursorChip() {
+      $('.chips .cursor').remove();
+      $('.lit-columns .lit').removeClass('lit');
+    }
+
+    function moveCursorChip(col, callback) {
+      $('.chips .cursor').css('left', indexToPixels(col));
+      $('.lit-columns .lit').removeClass('lit');
+      $('.lit-columns div').eq(col).addClass('lit');
+
+      // callback is only used when the computer is about to drop a chip
+      // give it a slight delay for visual interest
+      setTimeout(callback, 300);
+    }
+
+    function dropCursorChip(row, callback) {
+      // speed of animation depends on how far the chip has to drop
+      var ms = (7 - row) * 40;
+      var duration = (ms / 1000) + 's';
+
+      $('.chips .cursor')
+        .removeClass('cursor')
+        .css({
+          'bottom': indexToPixels(row),
+          'transition-duration': duration,
+          'animation-delay': duration
+        })
+        .addClass('dropped');
+
+      $('.lit-columns .lit').removeClass('lit');
+      setTimeout(callback, ms);
+    }
+
+    function indexToPixels(index) {
+      return (index * 61 + 1) + 'px';
+    }
+  </script>
+</body>
+</html>

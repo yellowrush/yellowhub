@@ -40,6 +40,7 @@
   --color-bg-disabled: #f0ece2;
   --color-bg-content: rgb(247, 243, 223);
   --color-bg-overlay: rgba(0, 0, 0, 0.35);
+  --color-surface: #ffffff;
 
   /* ---------- Focus ---------- */
   --color-focus: #f5c31c;
@@ -148,6 +149,7 @@
   --color-bg-disabled: #2a2018;
   --color-bg-content: #1e1610;
   --color-bg-overlay: rgba(0, 0, 0, 0.6);
+  --color-surface: #1e1810;
 
   /* Primary (slightly lighter for dark bg) */
   --color-primary: #22d4c4;

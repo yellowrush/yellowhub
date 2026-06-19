@@ -23,6 +23,7 @@ export interface Translations {
     nav_title: string;
     nav_home: string;
     nav_blog: string;
+    nav_games: string;
     connect_title: string;
     connect_github: string;
     connect_resume: string;
@@ -31,6 +32,24 @@ export interface Translations {
     toggle_darkmode: string;
     toggle_lightmode: string;
     sea_label: string;
+  };
+    games: {
+    title: string;
+    description: string;
+    view_all: string;
+    back_to_games: string;
+    loading: string;
+    dragUp_title: string;
+    dragUp_desc: string;
+    alignUp_title: string;
+    alignUp_desc: string;
+    catUp_title: string;
+    catUp_desc: string;
+    findUp_title: string;
+    findUp_desc: string;
+    lineUp_title: string;
+    lineUp_desc: string;
+    play_button: string;
   };
   time: {
     greeting_morning: string;
@@ -66,6 +85,7 @@ export const translations: Record<Locale, Translations> = {
       nav_title: 'Navigate',
       nav_home: 'Home',
       nav_blog: 'Blog',
+      nav_games: 'Games',
       connect_title: 'Connect',
       connect_github: 'GitHub',
       connect_resume: 'Resume',
@@ -74,6 +94,24 @@ export const translations: Record<Locale, Translations> = {
       toggle_darkmode: '🌙 Dark',
       toggle_lightmode: '☀️ Light',
       sea_label: '🌊',
+    },
+    games: {
+      title: 'Mini Games',
+      description: 'Fun web games to relax and challenge your mind.',
+      view_all: 'View All Games',
+      back_to_games: '← Back to Games',
+      loading: 'Loading game…',
+      dragUp_title: 'Drag Up',
+      dragUp_desc: 'Drag the bear cub through rotating grids to reach the star.',
+      alignUp_title: 'Align Up',
+      alignUp_desc: 'Drop pieces into the grid and connect four in a row to win.',
+      catUp_title: 'Cat Up',
+      catUp_desc: 'Guide the cat across the grid — plan every move wisely!',
+      findUp_title: 'Find Up',
+      findUp_desc: 'Flip cards to find matching pairs in this memory challenge.',
+      lineUp_title: 'Line Up',
+      lineUp_desc: 'Place pieces strategically to get five in a line.',
+      play_button: 'Play Now',
     },
     time: {
       greeting_morning: 'Good morning',
@@ -107,6 +145,7 @@ export const translations: Record<Locale, Translations> = {
       nav_title: '导航',
       nav_home: '首页',
       nav_blog: '博客',
+      nav_games: '小游戏',
       connect_title: '联系',
       connect_github: 'GitHub',
       connect_resume: '简历',
@@ -115,6 +154,24 @@ export const translations: Record<Locale, Translations> = {
       toggle_darkmode: '🌙 夜间',
       toggle_lightmode: '☀️ 白天',
       sea_label: '🌊',
+    },
+    games: {
+      title: '小游戏',
+      description: '放松心情、挑战思维的趣味小游戏。',
+      view_all: '查看全部游戏',
+      back_to_games: '← 返回游戏列表',
+      loading: '游戏加载中…',
+      dragUp_title: 'Drag Up',
+      dragUp_desc: '拖动小熊穿过旋转网格，到达星星终点。',
+      alignUp_title: 'Align Up',
+      alignUp_desc: '将棋子落入网格，连成四子即可获胜。',
+      catUp_title: 'Cat Up',
+      catUp_desc: '引导小猫穿越网格，巧妙规划每一步！',
+      findUp_title: 'Find Up',
+      findUp_desc: '翻开卡片找出匹配对，挑战你的记忆力。',
+      lineUp_title: 'Line Up',
+      lineUp_desc: '巧妙落子，连成五子一线。',
+      play_button: '开始游戏',
     },
     time: {
       greeting_morning: '早上好',

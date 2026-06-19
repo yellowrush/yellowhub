@@ -1,0 +1,147 @@
+/* ============================================
+   Game Player Page — Full-screen game stage
+   with first-screen loading optimisation
+   ============================================ */
+
+.game-player {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 16px 16px 40px;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 80px);
+}
+
+/* ---------- Top Bar ---------- */
+.game-player__topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+
+.game-player__back {
+  font-size: 14px;
+  height: 40px;
+  padding: 0 18px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.game-player__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+  flex: 1;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.game-player__spacer {
+  width: 0;
+  flex-shrink: 0;
+}
+
+/* ---------- Game Stage (iframe container) ---------- */
+.game-player__stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  max-height: calc(100vh - 180px);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fdf6ec;
+  border: 2px solid var(--color-border);
+  box-shadow: 0 4px 0 0 var(--shadow-3d), 0 8px 24px rgba(189, 174, 160, 0.2);
+}
+
+/* ---------- Loading Overlay ---------- */
+.game-player__loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: linear-gradient(135deg, #fdf6ec 0%, #fce8d5 100%);
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.game-player__spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(25, 200, 185, 0.2);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: gameSpinner 0.8s linear infinite;
+}
+
+@keyframes gameSpinner {
+  to { transform: rotate(360deg); }
+}
+
+.game-player__loading-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+/* ---------- Iframe ---------- */
+.game-player__iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.game-player__iframe.is-ready {
+  opacity: 1;
+}
+
+/* ---------- Info Bar ---------- */
+.game-player__info {
+  margin-top: 16px;
+  padding: 14px 20px;
+  background: var(--color-surface);
+  border-radius: 12px;
+  border: 1px solid var(--color-border-light);
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.game-player__info p {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .game-player {
+    padding: 12px 12px 24px;
+  }
+
+  .game-player__back {
+    font-size: 12px;
+    height: 36px;
+    padding: 0 12px;
+  }
+
+  .game-player__title {
+    font-size: 16px;
+  }
+
+  .game-player__stage {
+    aspect-ratio: 3 / 4.5;
+  }
+}
